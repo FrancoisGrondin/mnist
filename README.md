@@ -10,7 +10,7 @@ Create the environment
 python3 -m venv /path/mnist
 ```
 
-Active it
+Activate it
 
 ```
 source /path/mnist/bin/activate
