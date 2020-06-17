@@ -52,7 +52,7 @@ class Net(nn.Module):
 	def forward(self, x):
 
 		# Compute 1st layer (batchnorm + conv + relu + maxpool)
-		# (N,1,28,28) > (N,1,13,13)
+		# (N,1,28,28) > (N,32,13,13)
 		x = F.max_pool2d(F.relu(self.conv1(self.bn1(x))), (2,2))
 
 		# Compute 2nd layer (batchnorm + conv + relu + maxpool)
