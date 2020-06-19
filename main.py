@@ -98,8 +98,8 @@ def train(model, device, loader, optimizer):
 	for batch in progressbar.progressbar(loader):
 
 		# Load data for this batch
-		image = batch[0]
-		target = batch[1]
+		image = batch[0].to(device)
+		target = batch[1].to(device)
 
 		# This is a new batch, so we reset all the gradients
 		optimizer.zero_grad()
@@ -129,8 +129,8 @@ def eval(model, device, loader):
 	for batch in progressbar.progressbar(loader):
 
 		# Load data for this batch
-		image = batch[0]
-		target = batch[1]
+		image = batch[0].to(device)
+		target = batch[1].to(device)
 
 		# Compute the forward pass
 		output = model(image)
