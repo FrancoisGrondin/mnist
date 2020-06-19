@@ -61,7 +61,7 @@ class Net(nn.Module):
 
 		# Compute 3rd layer (batchnorm + conv + relu + maxpool)
 		# (N,32,5,5) > (N,32,1,1)
-		x = F.max_pool2d(F.relu(self.conv2(self.bn3(x))), (2,2))
+		x = F.max_pool2d(F.relu(self.conv3(self.bn3(x))), (2,2))
 
 		# Classification layer (fully connectd + logsoftmax)
 		# (N,32,1,1) > (N,10)
@@ -190,7 +190,7 @@ if args.view == True:
 	exit()
 
 # Load the model to train (and by default initialize with random parameters)
-model = Net()
+model = Net().to(device)
 
 # Mesure the accuracy of the model with random parameters (should be bad!)
 train_accuracy = eval(model=model, device=device, loader=train_loader)
